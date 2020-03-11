@@ -7,6 +7,3 @@ Der Dungeon selbst wird dann von der Klasse Dungeon gezeichnet, die auf die Klas
 zurueckgreift, welche fuer ein einzelnes Feld verantwortlich ist.
 
 Die Anwendung greift dann auf die Klasse Dungeon zu und stellt diese dar.
-Hallo
-HHHAAAAAAAAAAAAAAAAAALLLLLLLLLLLLOOOOOOOOOOOO
-HEN IST DOOF
