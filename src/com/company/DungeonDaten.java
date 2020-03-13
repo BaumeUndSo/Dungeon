@@ -22,9 +22,9 @@ public class DungeonDaten
        daten[ 7] = "WI         W    W";       
        daten[ 8] = "W          W    W";
        daten[ 9] = "WWWWWWWWWWWW    W";
-       daten[10] = "W         IW    W";
+       daten[10] = "W          W    W";
        daten[11] = "W          V    W";       
-       daten[12] = "V          WWWWWW";
+       daten[12] = "W          WWWWWW";
        daten[13] = "W          W     ";
        daten[14] = "W          W     ";
        daten[15] = "WWWWWWWWWWWW     ";            

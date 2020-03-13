@@ -66,7 +66,7 @@ public class Dungeon
                     item.items[1]=item.items[1]-1;
                 }
             }
-            //wand kein movement
+            //wenn Wand kein movement
             if (feld[neuX][neuY].getTyp() == 0){
                 return;
             }
@@ -74,122 +74,9 @@ public class Dungeon
         kurt.geheZu(neuX,neuY);
         aktY=neuY;
         aktX=neuX;
+        //wenn Aktion ausgeführt Feld zurücksetzen
         feld[aktX][aktY].typ=1;
     }
-/*
-    public void goWest()
-    {
-        if (aktX < 1) return;
-
-        //wenn Feld nicht gleich 1 aktion ausführen
-        if (feld[aktX-1][aktY].getTyp() != 1){
-            if (feld[aktX-1][aktY].getTyp() == 4){
-                item.items[1]=item.items[1]+1;
-                aktX--;
-                kurt.geheZu(aktX,aktY);
-                feld[aktX][aktY].typ=1;
-                return;
-            }
-            if (feld[aktX-1][aktY].getTyp() == 2){
-                if (item.items[1]>0){
-                    aktX--;
-                    kurt.geheZu(aktX,aktY);
-                    item.items[1]=item.items[1]-1;
-                    feld[aktX][aktY].typ=1;
-                    return;
-                }
-            }
-            return;
-        }
-        aktX--;
-        kurt.geheZu(aktX,aktY);
-
-    }
-
-    public void goEast()
-    {
-        if (aktX > daten.breite-2) return;
-        if (feld[aktX+1][aktY].getTyp() != 1) {
-            if (feld[aktX+1][aktY].getTyp() == 4){
-
-                item.items[1]=item.items[1]+1;
-                aktX++;
-                kurt.geheZu(aktX,aktY);
-                feld[aktX][aktY].typ=1;
-                return;
-            }
-            if (feld[aktX+1][aktY].getTyp() == 2){
-                if (item.items[1]>=1){
-
-                    aktX++;
-                    kurt.geheZu(aktX,aktY);
-                    feld[aktX][aktY].typ=1;
-                    item.items[1]=item.items[1]-1;
-
-                }
-            }
-            return;
-        }
-
-        aktX++;
-        kurt.geheZu(aktX,aktY);
-
-    }
-
-    public void goSouth()
-    {
-        if (aktY <1) return;
-        if (feld[aktX][aktY-1].getTyp() != 1) {
-            if (feld[aktX][aktY-1].getTyp() == 4){
-                item.items[1]=item.items[1]+1;
-                aktY--;
-                kurt.geheZu(aktX,aktY);
-                feld[aktX][aktY].typ=1;
-                return;
-            }
-            if (feld[aktX][aktY-1].getTyp() == 2){
-                if (item.items[1]>0){
-                    aktY--;
-                    kurt.geheZu(aktX,aktY);
-                    feld[aktX][aktY].typ=1;
-                    item.items[1]=item.items[1]-1;
-                    return;
-                }
-            }
-            return;
-        }
-        aktY--;
-        kurt.geheZu(aktX,aktY);
-
-    }
-
-    public void goNorth()
-    {
-        if (aktY > 16) return;
-        if (feld[aktX][aktY+1].getTyp() != 1){
-            if (feld[aktX][aktY+1].getTyp() == 4){
-                item.items[1]=item.items[1]+1;
-                aktY++;
-                kurt.geheZu(aktX,aktY);
-                feld[aktX][aktY].typ=1;
-                return;
-            }
-            if (feld[aktX][aktY+1].getTyp() == 2){
-                if (item.items[1]>0){
-
-                    aktY++;
-                    kurt.geheZu(aktX,aktY);
-                    feld[aktX][aktY].typ=1;
-                    item.items[1]=item.items[1]-1;
-                    return;
-                }
-            }
-            return;
-        }
-        aktY++;
-        kurt.geheZu(aktX,aktY);
-    }
-    */
 
     public void paint(Graphics g)
     {   antikurt.paint(g);
