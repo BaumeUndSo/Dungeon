@@ -12,7 +12,8 @@ public class Dungeon
     private Inventar inv;
     boolean inventar;
     public Gegner Schwach,Stark;
-    public boolean Kampf;
+    public boolean Kampf1;
+    private  Kampf kampf;
 
 
 
@@ -64,12 +65,13 @@ public class Dungeon
                 item.items[1]=item.items[1]+1;
             }
             if (feld[neuX][neuY].getTyp() == 5){
-                 Stark= new Gegner (100,50);
-                 Kampf=true;
+                // neuer kampf wir gestartet /*
+                 kampf= new Kampf(kurt.leben,kurt.angriff,kurt.mana,kurt.fähigkeiten,20,100,50,20,20);
+                 Kampf1=true;
             }
             if (feld[neuX][neuY].getTyp() == 6){
-                Schwach= new Gegner (50,25);
-                Kampf= true ;
+                kampf= new Kampf(kurt.leben,kurt.angriff,kurt.mana,kurt.fähigkeiten,20,100,50,20,20);
+                Kampf1= true ;
             }
             if (feld[neuX][neuY].getTyp() == 2){
                 if (item.items[1]>0){

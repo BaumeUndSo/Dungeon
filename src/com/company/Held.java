@@ -5,7 +5,7 @@ import java.awt.*;
 public class Held 
 {
     private int x,y;
-    double angriff, ruestung, leben;    
+    int angriff, ruestung, leben,mana,fähigkeiten;
     int gold;
     
     public Held()
@@ -13,7 +13,10 @@ public class Held
         leben = 255;
         angriff = 10;
         ruestung = 10;
-        gold = 25;        
+        gold = 25;
+        mana=100;
+        fähigkeiten=0;
+
     }
     
     public void geheZu(int xPos, int yPos)
