@@ -41,16 +41,18 @@ public class Anwendung extends JFrame implements KeyListener
 
     public void keyPressed(KeyEvent e)
     {
-        if (e.getKeyCode() == KeyEvent.VK_RIGHT)
-            brett.move("rechts");
-        else if (e.getKeyCode() == KeyEvent.VK_LEFT)
-            brett.move("links");
-        else if (e.getKeyCode() == KeyEvent.VK_UP)
-            brett.move("oben");
-        else if (e.getKeyCode() == KeyEvent.VK_DOWN)
-            brett.move("unten");
-        else if (e.getKeyCode() == KeyEvent.VK_E)
-            brett.inventar=true ;
+        if (brett.Kampf==false) {
+            if (e.getKeyCode() == KeyEvent.VK_RIGHT)
+                brett.move("rechts");
+            else if (e.getKeyCode() == KeyEvent.VK_LEFT)
+                brett.move("links");
+            else if (e.getKeyCode() == KeyEvent.VK_UP)
+                brett.move("oben");
+            else if (e.getKeyCode() == KeyEvent.VK_DOWN)
+                brett.move("unten");
+            else if (e.getKeyCode() == KeyEvent.VK_E)
+                brett.inventar = true;
+        }
 
 
         repaint();

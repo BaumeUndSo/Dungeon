@@ -11,7 +11,9 @@ public class Dungeon
     private String test;
     private Inventar inv;
     boolean inventar;
-    private Gegner antikurt;
+    public Gegner Schwach,Stark;
+    public boolean Kampf;
+
 
 
 
@@ -22,7 +24,7 @@ public class Dungeon
         feld = new Feld[daten.breite][daten.hoehe];
         kurt = new Held();
         item=new Item();
-        antikurt= new Gegner();
+
 
 
 
@@ -62,10 +64,12 @@ public class Dungeon
                 item.items[1]=item.items[1]+1;
             }
             if (feld[neuX][neuY].getTyp() == 5){
-                Gegner Stark= new Gegner (100,50);
+                 Stark= new Gegner (100,50);
+                 Kampf=true;
             }
             if (feld[neuX][neuY].getTyp() == 6){
-                Gegner Schwach= new Gegner (50,25);
+                Schwach= new Gegner (50,25);
+                Kampf= true ;
             }
             if (feld[neuX][neuY].getTyp() == 2){
                 if (item.items[1]>0){
@@ -103,4 +107,5 @@ public class Dungeon
 
 
     }
+
 }

@@ -1,9 +1,13 @@
 package com.company;
 
+import javax.swing.*;
 import java.awt.*;
+import java.awt.image.WritableRenderedImage;
 import java.util.concurrent.TimeUnit;
+import  java.awt.Graphics2D;
 
-public class Gegner {
+
+public class Gegner  {
     
     boolean tot;
     private int x,y,angriff,leben;
@@ -15,6 +19,7 @@ public class Gegner {
         
          leben = pleben;
          angriff=pangriff;
+
 
     }
    }
