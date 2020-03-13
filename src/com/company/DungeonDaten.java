@@ -12,8 +12,8 @@ public class DungeonDaten
        daten = new String[hoehe];       
        //           12345678901234567
        //                    1
-       daten[ 0] = "WWWWWSWWWWWWWWWWW";
-       daten[ 1] = "W          W  I W";
+       daten[ 0] = "WWWWWWWWWWWWWWWWW";
+       daten[ 1] = "W  S       W  I W";
        daten[ 2] = "W          W    W";
        daten[ 3] = "W          W    W";       
        daten[ 4] = "W          W    W";
