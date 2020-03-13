@@ -32,7 +32,7 @@ public class Feld
        if (typ==2)
           g.setColor(new Color(91,0,91)); else
        if (typ==3)
-          g.setColor(new Color(0,91,91)); else
+           g.setColor(new Color(91,91,0)); else
           g.setColor(Color.BLACK);
           
           

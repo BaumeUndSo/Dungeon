@@ -42,42 +42,39 @@ public class Dungeon
             }
 
     }
-    public void goWest(String richtung)
+    public void move(String richtung)
     {
-        int richtungstyp;
+        int neuY=aktY;
+        int neuX=aktX;
         if(richtung=="rechts"){
-            richtungstyp=1;
+            neuX=neuX+1;
         }else if(richtung=="links"){
-            richtungstyp=2;
+            neuX=neuX-1;
         }else if(richtung=="unten"){
-            richtungstyp=3;
+            neuY=neuY+1;
         }else if(richtung=="oben"){
-            richtungstyp=4;
+            neuY=neuY-1;
         }
 
         //wenn Feld nicht gleich 1(leerfeld) aktion ausführen
-        if (feld[aktX-1][aktY].getTyp() != 1){
-            if (feld[aktX-1][aktY].getTyp() == 4){
+        if (feld[neuX][neuY].getTyp() != 1){
+            if (feld[neuX][neuY].getTyp() == 4){
                 item.items[1]=item.items[1]+1;
-                aktX--;
-                kurt.geheZu(aktX,aktY);
-                feld[aktX][aktY].typ=1;
-                return;
             }
-            if (feld[aktX-1][aktY].getTyp() == 2){
+            if (feld[neuX][neuY].getTyp() == 2){
                 if (item.items[1]>0){
-                    aktX--;
-                    kurt.geheZu(aktX,aktY);
                     item.items[1]=item.items[1]-1;
-                    feld[aktX][aktY].typ=1;
-                    return;
                 }
             }
-            return;
+            //wand kein movement
+            if (feld[neuX][neuY].getTyp() == 0){
+                return;
+            }
         }
-        aktX--;
-        kurt.geheZu(aktX,aktY);
-
+        kurt.geheZu(neuX,neuY);
+        aktY=neuY;
+        aktX=neuX;
+        feld[aktX][aktY].typ=1;
     }
 /*
     public void goWest()
