@@ -64,6 +64,8 @@ public class Dungeon
             if (feld[neuX][neuY].getTyp() == 2){
                 if (item.items[1]>0){
                     item.items[1]=item.items[1]-1;
+                }else{
+                    return;
                 }
             }
             //wenn Wand kein movement
