@@ -16,9 +16,9 @@ public class DungeonDaten
        //                    1
        daten[ 0] = "WWWWWWWWWWWWWWWWW";
        daten[ 1] = "W  S       W  I W";
-       daten[ 2] = "W          W    W";
+       daten[ 2] = "W  H       W    W";
        daten[ 3] = "W          W    W";       
-       daten[ 4] = "W          W    W";
+       daten[ 4] = "W  E       W    W";
        daten[ 5] = "W          V    W";
        daten[ 6] = "W          W    W";
        daten[ 7] = "WI         W    W";       

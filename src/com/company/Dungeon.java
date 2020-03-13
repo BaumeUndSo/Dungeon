@@ -22,7 +22,7 @@ public class Dungeon
         feld = new Feld[daten.breite][daten.hoehe];
         kurt = new Held();
         item=new Item();
-        antikurt= new Gegner(aktX,aktY);
+        antikurt= new Gegner();
 
 
 
@@ -61,6 +61,12 @@ public class Dungeon
             if (feld[neuX][neuY].getTyp() == 4){
                 item.items[1]=item.items[1]+1;
             }
+            if (feld[neuX][neuY].getTyp() == 5){
+                Gegner Stark= new Gegner ();
+            }
+            if (feld[neuX][neuY].getTyp() == 6){
+                Gegner Schwach= new Gegner ();
+            }
             if (feld[neuX][neuY].getTyp() == 2){
                 if (item.items[1]>0){
                     item.items[1]=item.items[1]-1;
@@ -68,20 +74,21 @@ public class Dungeon
                     return;
                 }
             }
-            //wenn Wand kein movement
+            //wand kein movement
             if (feld[neuX][neuY].getTyp() == 0){
                 return;
             }
+
         }
         kurt.geheZu(neuX,neuY);
         aktY=neuY;
         aktX=neuX;
-        //wenn Aktion ausgeführt Feld zurücksetzen
         feld[aktX][aktY].typ=1;
     }
 
+
     public void paint(Graphics g)
-    {   antikurt.paint(g);
+    {
         if(inventar==true ){
         schlüssel=item.items[1];
         inv= new Inventar(schlüssel);
