@@ -62,10 +62,10 @@ public class Dungeon
                 item.items[1]=item.items[1]+1;
             }
             if (feld[neuX][neuY].getTyp() == 5){
-                Gegner Stark= new Gegner ();
+                Gegner Stark= new Gegner (100,50);
             }
             if (feld[neuX][neuY].getTyp() == 6){
-                Gegner Schwach= new Gegner ();
+                Gegner Schwach= new Gegner (50,25);
             }
             if (feld[neuX][neuY].getTyp() == 2){
                 if (item.items[1]>0){

@@ -6,17 +6,15 @@ import java.util.concurrent.TimeUnit;
 public class Gegner {
     
     boolean tot;
-     private int x,y,px,py,xx,yy;
-    double angriff, ruestung, leben;    
+    private int x,y,angriff,leben;
+    double ruestung;
     int gold;
-    
-    public Gegner(){
+
+    public Gegner(int  pleben , int  pangriff){
                
         
-         leben = 255;
-        angriff = 10;
-        ruestung = 10;
-        gold = 25; 
+         leben = pleben;
+         angriff=pangriff;
 
     }
    }
