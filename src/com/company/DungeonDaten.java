@@ -7,6 +7,8 @@ public class DungeonDaten
     
     public DungeonDaten()
     {
+        //Hoehe * 4, Breite * 4, Raume,
+       int mapcode=
        breite = 17; 
        hoehe  = 16;
        daten = new String[hoehe];       
