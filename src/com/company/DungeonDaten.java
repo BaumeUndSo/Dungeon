@@ -12,7 +12,7 @@ public class DungeonDaten
        int manual=0,gesetzt=0;
 
        if(manual==0) {
-           String mapcode="6-6-4";
+           String mapcode="4-6-3";
            String[] split = mapcode.split("-");
            hoehe=Integer.parseInt(split[0]);
            if(hoehe>6){
@@ -118,7 +118,7 @@ public class DungeonDaten
                            }
                        }
                    }
-                   //wenn nix gesetzt zufällig entscheiden ob gegner gestzt werden
+                   //wenn nix gesetzt zufällig entscheiden welches Feld gesetzt wird
                    if(gesetzt==0){
                        Random rand = new Random();
                        int randZahl;
