@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="11155e84-157a-4f25-8726-e9933714988b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Held.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Kampf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Kampf.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +115,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584141467039</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="asdasdasd">
+      <created>1584180021620</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1584180021620</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -149,10 +154,10 @@
     </state>
     <state x="689" y="304" key="#com.intellij.ide.util.TreeClassChooserDialog/-1600.-109.1600.1160/0.0.1920.1040@0.0.1920.1040" timestamp="1584106221023" />
     <state x="689" y="304" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040/1920.-9.1920.1040/-1920.26.1920.1040@0.0.1920.1040" timestamp="1584116391591" />
-    <state x="603" y="114" key="CommitChangelistDialog2" timestamp="1584141466520">
+    <state x="603" y="114" key="CommitChangelistDialog2" timestamp="1584180021123">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="603" y="114" key="CommitChangelistDialog2/0.0.1920.1040/1920.-9.1920.1040/-1920.26.1920.1040@0.0.1920.1040" timestamp="1584141466520" />
+    <state x="603" y="114" key="CommitChangelistDialog2/0.0.1920.1040/1920.-9.1920.1040/-1920.26.1920.1040@0.0.1920.1040" timestamp="1584180021123" />
     <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1584111721809">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
