@@ -33,9 +33,8 @@ public class Kampf  extends JFrame {
         gegnerrüstung = grüstung;
         gegnerstärke = gstärke;
         gegnerwert = pwert;
-
+// der Held wird als bild erstellt
         Held = new JLabel();
-
         ImageIcon icon = new ImageIcon("C:\\Users\\julia\\Documents\\GitHub\\Dungeon\\Dungeon\\src\\com\\company\\Held.png");
         getContentPane().setLayout(null);
         Held.setIcon(icon);
@@ -44,13 +43,16 @@ public class Kampf  extends JFrame {
         add(Held);
         setVisible(true);
 
-        Mob = new JLabel();
+        // der mob wird als Bild hinzugefügt
 
+        Mob = new JLabel();
         ImageIcon icon1 = new ImageIcon("C:\\Users\\julia\\Documents\\GitHub\\Dungeon\\Dungeon\\src\\com\\company\\Gegner.png");
         Mob.setIcon(icon1);
         getContentPane().add(Mob);
         Mob.setBounds(500, 100, 400, 200);
         add(Mob);
+
+        // Array für jedes einzelne Herz max 20 für den Helden
         Mob2= new JLabel[20];
         test1= new JLabel[20];
         setVisible(true);
@@ -137,9 +139,10 @@ public class Kampf  extends JFrame {
 
 
 
-        }
+        } // Anzeige der Leben für den Helden
 
-    public void LebenGegner(int pleben) {
+    public void LebenGegner(int pleben) // Lebensanzeige für Gegner
+    {
         int g, m, l, px;
         l = pleben;
         m = 0;
