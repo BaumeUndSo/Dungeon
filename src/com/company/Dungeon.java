@@ -80,6 +80,9 @@ public class Dungeon
                     return;
                 }
             }
+            if (feld[neuX][neuY].getTyp() == 7){
+                kurt.addHP(100);
+            }
             //wand kein movement
             if (feld[neuX][neuY].getTyp() == 0){
                 return;
