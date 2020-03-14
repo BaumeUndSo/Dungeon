@@ -76,7 +76,7 @@ public class Kampf  extends JFrame {
         add(vs);
 
 
-    fähigkeit1= new JButton("Donnerblitz "+\n + " 20 Mana");
+    fähigkeit1= new JButton("Donnerblitz " + " 20 Mana");
     fähigkeit1.setBounds(50,400,200,100);
     add(fähigkeit1);
 
