@@ -4,8 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Kampf  extends JFrame {
-    JLabel Held, Mob, Held2, lebenhalb, lebenviertel, lebendreiviertel, test1[],Mob2[];
+    JLabel Held, Mob, Held2, lebenhalb, lebenviertel, lebendreiviertel, test1[],Mob2[],vs,manaanzeige;
     Lebensanzeige Held1, Mob1;
+    JButton fähigkeit1,fähigkeit2,fähigkeit3,fähigkeit4;
     int[] test;
     int typ;
 
@@ -33,13 +34,25 @@ public class Kampf  extends JFrame {
         gegnerrüstung = grüstung;
         gegnerstärke = gstärke;
         gegnerwert = pwert;
-// der Held wird als bild erstellt
+
+
+
+        manaanzeige= new JLabel("Mana:"+mana+"/"+200);
+        manaanzeige.setFont(new Font("Arial",Font.BOLD,15));
+        getContentPane().add(manaanzeige);
+        manaanzeige.setBounds(10,70,100,70);
+        add(manaanzeige);
+
+
+
+
+        // der Held wird als bild erstellt
         Held = new JLabel();
         ImageIcon icon = new ImageIcon("C:\\Users\\julia\\Documents\\GitHub\\Dungeon\\Dungeon\\src\\com\\company\\Held.png");
         getContentPane().setLayout(null);
         Held.setIcon(icon);
         getContentPane().add(Held);
-        Held.setBounds(100, 200, 500, 300);
+        Held.setBounds(50, 120, 500, 300);
         add(Held);
         setVisible(true);
 
@@ -49,8 +62,27 @@ public class Kampf  extends JFrame {
         ImageIcon icon1 = new ImageIcon("C:\\Users\\julia\\Documents\\GitHub\\Dungeon\\Dungeon\\src\\com\\company\\Gegner.png");
         Mob.setIcon(icon1);
         getContentPane().add(Mob);
-        Mob.setBounds(500, 100, 400, 200);
+
+        Mob.setBounds(650, 140, 400, 200);
         add(Mob);
+
+
+
+        vs= new JLabel("VS");
+        vs.setFont(new Font("Arial",Font.BOLD,40));
+        getContentPane().add(vs);
+        vs.setBounds(450,140,200,200);
+
+        add(vs);
+
+
+    fähigkeit1= new JButton("Donnerblitz "+\n + " 20 Mana");
+    fähigkeit1.setBounds(50,400,200,100);
+    add(fähigkeit1);
+
+
+
+
 
         // Array für jedes einzelne Herz max 20 für den Helden
         Mob2= new JLabel[20];
@@ -60,11 +92,14 @@ public class Kampf  extends JFrame {
         LebenGegner(gegnerleben);
 
 
+
+
+
     }
 
 
 
-    public void Anzeige(int pleben) {
+        public void Anzeige(int pleben) {
         int g, m, l, px;
         l = pleben;
         m = 0;
@@ -141,8 +176,8 @@ public class Kampf  extends JFrame {
 
         } // Anzeige der Leben für den Helden
 
-    public void LebenGegner(int pleben) // Lebensanzeige für Gegner
-    {
+        public void LebenGegner(int pleben) // Lebensanzeige für Gegner
+          {
         int g, m, l, px;
         l = pleben;
         m = 0;
@@ -167,7 +202,7 @@ public class Kampf  extends JFrame {
             Mob2[g].setIcon(Mob1.vollesherz);
             getContentPane().add(Mob2[g]);
             add(Mob2[g]);
-            Mob2[g].setBounds(450 + px, 400, 49, 51);
+            Mob2[g].setBounds(550 + px, 30, 49, 51);
             setVisible(true);
             px = i * 50;
 
@@ -178,7 +213,7 @@ public class Kampf  extends JFrame {
             Mob2[g].setIcon(Mob1.viertelherz);
             getContentPane().add(Mob2[g]);
             add(Mob2[g]);
-            Mob2[g].setBounds(450 + px, 400, 49, 51);
+            Mob2[g].setBounds(550 + px, 30, 49, 51);
             setVisible(true);
             px =g*50;
 
@@ -189,7 +224,7 @@ public class Kampf  extends JFrame {
             Mob2[g].setIcon(Mob1.halbesherz);
             getContentPane().add(Mob2[g]);
             add(Mob2[g]);
-            Mob2[g].setBounds(450+ px, 400, 49, 51);
+            Mob2[g].setBounds(550 + px, 30, 49, 51);
             setVisible(true);
             px =g*50;
 
@@ -200,7 +235,7 @@ public class Kampf  extends JFrame {
             Mob2[g].setIcon(Mob1.dreiviertelherz);
             getContentPane().add(Mob2[g]);
             add(Mob2[g]);
-            Mob2[g].setBounds(450 + px, 400, 49, 51);
+            Mob2[g].setBounds(550 + px, 30, 49, 51);
             setVisible(true);
             px =g*50;
 
