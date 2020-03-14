@@ -7,10 +7,11 @@ public class Held
     private int x,y;
     int angriff, ruestung, leben,mana,fähigkeiten;
     int gold;
+    int max_HP=200;
     
     public Held()
     {
-        leben = 255;
+        leben = 200;
         angriff = 10;
         ruestung = 10;
         gold = 25;
@@ -32,8 +33,16 @@ public class Held
         int xPix = 20 + x*20;
         int yPix = 20 + y*20;
               
-        g.setColor(new Color(0,(int) leben,0));
+        g.setColor(new Color(0,((int)leben),0));
         g.fillOval(xPix+4,yPix+4,12,12);
-    }    
+    }
+    public void addHP(int addHP)
+    {
+        if((leben+addHP)>max_HP){
+            leben=max_HP;
+        }else{
+            leben=leben+addHP;
+        }
+    }
 
 }
