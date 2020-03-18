@@ -1,17 +1,20 @@
 package com.company;
 
 import java.awt.*;
+import javax.swing.*;
 
 public class Feld
 {
     public int typ;
     private int x,y;
     
-    public Feld(int x, int y, char t)
-    {
+    public Feld(int x, int y, char t) {
+
         this.x = 20+x*20;
         this.y = 20+y*20;
-        if (t == 'M') typ = 8; else
+        if (t == 'M'){
+            typ = 8;
+        }else
         if (t == 'H') typ = 7; else
         if (t == 'G') typ = 5; else
         if (t == 'E')  typ= 6; else
@@ -39,7 +42,7 @@ public class Feld
        g.setColor(Color.BLACK);
 
 
-          
+
        g.fillRect(x,y,20,20);
        g.setColor(Color.BLACK);
        g.drawRect(x,y,20,20);

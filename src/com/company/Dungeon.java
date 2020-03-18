@@ -47,55 +47,57 @@ public class Dungeon
     }
     public void move(String richtung)
     {
-        int neuY=aktY;
-        int neuX=aktX;
-        if(richtung=="rechts"){
-            neuX=neuX+1;
-        }else if(richtung=="links"){
-            neuX=neuX-1;
-        }else if(richtung=="unten"){
-            neuY=neuY+1;
-        }else if(richtung=="oben"){
-            neuY=neuY-1;
-        }
+        if(kurt.getHP()>0) {
+            int neuY = aktY;
+            int neuX = aktX;
+            if (richtung == "rechts") {
+                neuX = neuX + 1;
+            } else if (richtung == "links") {
+                neuX = neuX - 1;
+            } else if (richtung == "unten") {
+                neuY = neuY + 1;
+            } else if (richtung == "oben") {
+                neuY = neuY - 1;
+            }
 
-        //wenn Feld nicht gleich 1(leerfeld) aktion ausführen
-        if (feld[neuX][neuY].getTyp() != 1){
-            if (feld[neuX][neuY].getTyp() == 4){
-                item.items[1]=item.items[1]+1;
-            }
-            if (feld[neuX][neuY].getTyp() == 5){
-                // neuer kampf wir gestartet /*
-                 kampf= new Kampf(kurt.leben,kurt.angriff,kurt.mana,kurt.fähigkeiten,20,100,50,20,20);
-                 Kampf1=true;
-            }
-            if (feld[neuX][neuY].getTyp() == 6){
-                kampf= new Kampf(kurt.leben,kurt.angriff,kurt.mana,kurt.fähigkeiten,20,100,50,20,20);
-                Kampf1= true ;
-            }
-            if (feld[neuX][neuY].getTyp() == 2){
-                if (item.items[1]>0){
-                    item.items[1]=item.items[1]-1;
-                }else{
+            //wenn Feld nicht gleich 1(leerfeld) aktion ausführen
+            if (feld[neuX][neuY].getTyp() != 1) {
+                if (feld[neuX][neuY].getTyp() == 4) {
+                    item.items[1] = item.items[1] + 1;
+                }
+                if (feld[neuX][neuY].getTyp() == 5) {
+                    // neuer kampf wir gestartet /*
+                    kampf = new Kampf(kurt.leben, kurt.angriff, kurt.mana, kurt.fähigkeiten, 20, 100, 50, 20, 20);
+                    Kampf1 = true;
+                }
+                if (feld[neuX][neuY].getTyp() == 6) {
+                    kampf = new Kampf(kurt.leben, kurt.angriff, kurt.mana, kurt.fähigkeiten, 20, 100, 50, 20, 20);
+                    Kampf1 = true;
+                }
+                if (feld[neuX][neuY].getTyp() == 2) {
+                    if (item.items[1] > 0) {
+                        item.items[1] = item.items[1] - 1;
+                    } else {
+                        return;
+                    }
+                }
+                if (feld[neuX][neuY].getTyp() == 7) {
+                    kurt.addHP(100);
+                }
+                if (feld[neuX][neuY].getTyp() == 8) {
+                    kurt.addmana(50);
+                }
+                //wand kein movement
+                if (feld[neuX][neuY].getTyp() == 0) {
                     return;
                 }
-            }
-            if (feld[neuX][neuY].getTyp() == 7){
-                kurt.addHP(100);
-            }
-            if (feld[neuX][neuY].getTyp() == 8){
-                kurt.addmana(50);
-            }
-            //wand kein movement
-            if (feld[neuX][neuY].getTyp() == 0){
-                return;
-            }
 
+            }
+            kurt.geheZu(neuX, neuY);
+            aktY = neuY;
+            aktX = neuX;
+            feld[aktX][aktY].typ = 1;
         }
-        kurt.geheZu(neuX,neuY);
-        aktY=neuY;
-        aktX=neuX;
-        feld[aktX][aktY].typ=1;
     }
 
 
