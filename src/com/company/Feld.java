@@ -11,6 +11,7 @@ public class Feld
     {
         this.x = 20+x*20;
         this.y = 20+y*20;
+        if (t == 'M') typ = 8; else
         if (t == 'H') typ = 7; else
         if (t == 'G') typ = 5; else
         if (t == 'E')  typ= 6; else
@@ -34,9 +35,10 @@ public class Feld
        if (typ==5) g.setColor(new Color(91,0, 11)); else
        if(typ==6) g.setColor(new Color(71, 35, 4)); else
        if(typ==7) g.setColor(new Color(7, 91, 0)); else
+       if (typ==8) g.setColor(new Color(5, 62, 91)); else
        g.setColor(Color.BLACK);
 
-          
+
           
        g.fillRect(x,y,20,20);
        g.setColor(Color.BLACK);

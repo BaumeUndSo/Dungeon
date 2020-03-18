@@ -83,6 +83,9 @@ public class Dungeon
             if (feld[neuX][neuY].getTyp() == 7){
                 kurt.addHP(100);
             }
+            if (feld[neuX][neuY].getTyp() == 8){
+                kurt.addmana(50);
+            }
             //wand kein movement
             if (feld[neuX][neuY].getTyp() == 0){
                 return;
@@ -100,7 +103,7 @@ public class Dungeon
     {
         if(inventar==true ){
         schlüssel=item.items[1];
-        inv= new Inventar(schlüssel);
+        inv= new Inventar(schlüssel,kurt.getHP(),kurt.getmaxHP(),kurt.getmana(),kurt.getmaxmana());
         inv.paint(g);
         inventar= false ;
     }

@@ -7,7 +7,7 @@ public class Held
     private int x,y;
     int angriff, ruestung, leben,mana,fähigkeiten;
     int gold;
-    int max_HP=200;
+    int max_HP=200,max_mana=150;
     
     public Held()
     {
@@ -43,6 +43,30 @@ public class Held
         }else{
             leben=leben+addHP;
         }
+    }
+    public int getHP()
+    {
+        return leben;
+    }
+    public int getmaxHP()
+    {
+        return max_HP;
+    }
+    public void addmana(int addmana)
+    {
+        if((mana+addmana)>max_HP){
+            mana=max_mana;
+        }else{
+            mana=mana+addmana;
+        }
+    }
+    public int getmana()
+    {
+        return mana;
+    }
+    public int getmaxmana()
+    {
+        return max_mana;
     }
 
 }
