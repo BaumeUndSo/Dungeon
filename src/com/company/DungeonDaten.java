@@ -58,6 +58,9 @@ public class DungeonDaten
                        }else if((h==(hoehe-2) && b==2)||(h==(hoehe-3) && b==2)){
                            daten[h]+="W";
                            gesetzt=1;
+                       }else if((h==(hoehe-4) && b==1)){
+                           daten[h]+="E";
+                           gesetzt=1;
                        }else {
 
                            //raumgenerierung
@@ -162,6 +165,9 @@ public class DungeonDaten
                            //starker Gegner
                        }else if(randZahl>=96){
                            daten[h] += "M";
+                           //schwacher Gegner
+                       }else if(randZahl>=95){
+                           daten[h] += "X";
                            //schwacher Gegner
                        }else if(randZahl>=86){
                            daten[h] += "G";
