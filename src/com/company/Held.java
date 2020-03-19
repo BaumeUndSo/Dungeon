@@ -37,8 +37,11 @@ public class Held
     {
         int xPix = 20 + x*20;
         int yPix = 20 + y*20;
-              
-        g.setColor(new Color(0,255,0));
+        if(leben>=0) {
+            g.setColor(new Color(0, 255, 0));
+        }else{
+            g.setColor(new Color(255, 12, 0));
+        }
         g.fillOval(xPix+4,yPix+4,12,12);
     }
 
@@ -114,6 +117,21 @@ public class Held
     public int getmaxmana()
     {
         return max_mana;
+    }
+    public int getAngriff()
+    {
+        double tmpwurzelwert;
+        tmpwurzelwert = Math.sqrt(mana)*2;
+        if(mana>=5) {
+            mana = mana - 5;
+        }else{
+            mana=0;
+        }
+        angriff= (int)Math.round(tmpwurzelwert);
+        if(angriff<5){
+            angriff=5;
+        }
+        return angriff;
     }
 
 }

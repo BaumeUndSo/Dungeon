@@ -7,7 +7,7 @@ public class Dungeon
     private DungeonDaten daten;
     private Held kurt;
     private Item item;
-    private int aktX, aktY,itemtyp,anzahl,schlüssel;
+    private int aktX, aktY,itemtyp,anzahl,schlüssel,gegnertyp;
     private String test;
     private Inventar inv;
     private new_kampf new_kampf;
@@ -130,18 +130,40 @@ public class Dungeon
                 for (int x = 0; x < daten.breite; x++)
                     feld[x][y].paint(g);
             kurt.paint(g);
-
-            new_kampf=new new_kampf(kurt.getHP(),kurt.getmaxHP(),kurt.getmana(),kurt.getmaxmana(),kurt.getXP(),kurt.getNextLVL(),kurt.getLVL());
+            gegnertyp = 1;
+            new_kampf = new new_kampf(kurt.getHP(), kurt.getmaxHP(), kurt.getmana(), kurt.getmaxmana(), kurt.getXP(), kurt.getNextLVL(), kurt.getLVL(), gegnertyp);
             new_kampf.paint(g);
-            openkampf=false;
+            //Kampf ausführen start
+            int k = 1, gegnerHP, gegnerAngriff, angriff = 10;
+            if (gegnertyp == 1) {
+                gegnerHP = 50;
+                gegnerAngriff = 5;
+            } else {
+                gegnerHP = 0;
+                gegnerAngriff = 5;
+            }
+            while (kurt.leben > 0 && gegnerHP > 0) {
+                if (k == 1) {
+                    gegnerHP = gegnerHP - kurt.getAngriff();
+                    k = 0;
+                } else {
+                    kurt.leben = kurt.leben - gegnerAngriff;
+                    k = 1;
+                }
+                if (gegnerHP <= 0) {
+                    kurt.addXP(100);
+                    break;
+                } else if (kurt.leben <= 0) {
+                    break;
+                }
+            }
+            //Kampf ausführen ende
+            openkampf = false;
         }else{
             for (int y = 0; y < daten.hoehe; y++)
                 for (int x = 0; x < daten.breite; x++)
                     feld[x][y].paint(g);
             kurt.paint(g);
         }
-
-
     }
-
 }
