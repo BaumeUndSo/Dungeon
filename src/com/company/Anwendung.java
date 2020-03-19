@@ -41,17 +41,31 @@ public class Anwendung extends JFrame implements KeyListener
 
     public void keyPressed(KeyEvent e)
     {
+        int openkampf;
         if (brett.Kampf1==false) {
-            if (e.getKeyCode() == KeyEvent.VK_RIGHT)
-                brett.move("rechts");
-            else if (e.getKeyCode() == KeyEvent.VK_LEFT)
-                brett.move("links");
-            else if (e.getKeyCode() == KeyEvent.VK_UP)
-                brett.move("oben");
-            else if (e.getKeyCode() == KeyEvent.VK_DOWN)
-                brett.move("unten");
-            else if (e.getKeyCode() == KeyEvent.VK_E)
+            if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+                openkampf=brett.move("rechts");
+                if(openkampf==1){
+                    brett.openkampf = true;
+                }
+            }else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+                openkampf=brett.move("links");
+                if(openkampf==1){
+                    brett.openkampf = true;
+                }
+            }else if (e.getKeyCode() == KeyEvent.VK_UP) {
+                openkampf=brett.move("oben");
+                if(openkampf==1){
+                    brett.openkampf = true;
+                }
+            }else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                openkampf=brett.move("unten");
+                if(openkampf==1){
+                    brett.openkampf = true;
+                }
+            }else if (e.getKeyCode() == KeyEvent.VK_E) {
                 brett.inventar = true;
+            }
         }
 
 

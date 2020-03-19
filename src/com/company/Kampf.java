@@ -2,19 +2,38 @@ package com.company;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Objects;
 
-public class Kampf  extends JFrame {
+public class Kampf  extends JFrame implements ActionListener {
     JLabel Held, Mob, Held2, lebenhalb, lebenviertel, lebendreiviertel, test1[],Mob2[],vs,manaanzeige;
     Lebensanzeige Held1, Mob1;
     JButton fähigkeit1,fähigkeit2,fähigkeit3,fähigkeit4;
     int[] test;
     int typ;
+    boolean istda;
 
 
-    private int leben, stärke, mana, faehigkeiten, rüstung, gegnerrüstung, gegnerleben, gegnerstärke, gegnerwert;
+    private int leben, stärke, mana, faehigkeiten, rüstung, gegnerrüstung, gegnerleben, gegnerstärke, gegnerwert,f1schaden,f2schaden,f3schaden,f4schaden,f1mana,f2mana,f3mana,f4mana;
 
 
     public Kampf(int pleben, int pstärke, int pmana, int pfähigkeiten, int prüstung, int gleben, int grüstung, int gstärke, int pwert) {
+
+            istda=false  ;
+        f1schaden=pstärke;
+        f2schaden=pstärke+10;
+        f3schaden=pstärke+30;
+        f4schaden=pstärke+50;
+
+        f1mana=20;
+        f2mana=50;
+        f3mana=70;
+        f4mana=120;
+
+
+
+
 
         setBackground(Color.WHITE);
         setTitle("Kampf");
@@ -35,13 +54,6 @@ public class Kampf  extends JFrame {
         gegnerstärke = gstärke;
         gegnerwert = pwert;
 
-
-
-        manaanzeige= new JLabel("Mana:"+mana+"/"+200);
-        manaanzeige.setFont(new Font("Arial",Font.BOLD,15));
-        getContentPane().add(manaanzeige);
-        manaanzeige.setBounds(10,70,100,70);
-        add(manaanzeige);
 
 
 
@@ -66,8 +78,7 @@ public class Kampf  extends JFrame {
         Mob.setBounds(650, 140, 400, 200);
         add(Mob);
 
-
-
+        //asdjans
         vs= new JLabel("VS");
         vs.setFont(new Font("Arial",Font.BOLD,40));
         getContentPane().add(vs);
@@ -76,9 +87,37 @@ public class Kampf  extends JFrame {
         add(vs);
 
 
-    fähigkeit1= new JButton("Donnerblitz " + " 20 Mana");
+    fähigkeit1= new JButton();
+    fähigkeit1.setText("<html><body><p>Donnerblitz</p><p>Mana:20</p><p>Schaden:"+f1schaden+"</p></body></html>");
     fähigkeit1.setBounds(50,400,200,100);
+   fähigkeit1.addActionListener(this);
     add(fähigkeit1);
+    setVisible(true);
+
+        if (pfähigkeiten>=2) {
+            fähigkeit2 = new JButton();
+            fähigkeit2.setText("<html><body><p>Ruckzuckhieb</p><p>Mana:50</p><p>Schaden:" + f2schaden + "</p></body></html>");
+            fähigkeit2.setBounds(280, 400, 200, 100);
+            fähigkeit2.addActionListener(this);
+            add(fähigkeit2);
+            setVisible(true);
+
+        }
+         if (pfähigkeiten>=3)
+        {fähigkeit3= new JButton();
+    fähigkeit3.setText("<html><body><p>Volttackle</p><p>Mana:70</p><p>Schaden:" +f3schaden+"</p></body></html>");
+    fähigkeit3.setBounds(500,400,200,100);
+    fähigkeit3.addActionListener(this);
+    add(fähigkeit3);}
+
+
+         if (pfähigkeiten>=4){
+    fähigkeit4=new JButton();
+    fähigkeit4.setText("<html><body><p>Volttackle</p><p>Mana:120</p><p>Schaden:"+f4schaden+"</p></body></html>");
+    fähigkeit4.setBounds(720,400,200,100);
+    fähigkeit4.addActionListener(this);
+    add(fähigkeit4);}
+
 
 
 
@@ -88,8 +127,7 @@ public class Kampf  extends JFrame {
         Mob2= new JLabel[20];
         test1= new JLabel[20];
         setVisible(true);
-        Anzeige(leben);
-        LebenGegner(gegnerleben);
+        aktualiesierung();
 
 
 
@@ -105,6 +143,17 @@ public class Kampf  extends JFrame {
         m = 0;
         g = 0;
         px = 0;
+
+
+
+
+
+            manaanzeige= new JLabel("Mana:"+mana+"/"+200);
+            manaanzeige.setFont(new Font("Arial",Font.BOLD,15));
+            getContentPane().add(manaanzeige);
+            manaanzeige.setBounds(10,70,100,70);
+            add(manaanzeige);
+            setVisible(true);
         for (int i = 0; i <= l; i++) {
             m++;
             if (m == 20) {
@@ -168,7 +217,9 @@ public class Kampf  extends JFrame {
 
 
 
+
             }
+
 
 
 
@@ -255,15 +306,60 @@ public class Kampf  extends JFrame {
 
 
 
+   public void aktualiesierung(){
+        if(istda== true) {
+
+
+
+            System.out.println("1");
+            for (int i = 0; i < test1.length; i++) {
+
+
+               test1[i].setVisible(false);
+            }
+           // for (int i = 0; i < Mob2.length; i++) {
+             //   Mob2[i].remove(i);
+
+
+            //}
+         // manaanzeige.remove(1);
+
+
+        }
+
+
+
+    //   Anzeige(leben);
+      // LebenGegner(gegnerleben);
+     
+
+   }
+   public void actionPerformed(ActionEvent e){
+        if(e.getSource()==fähigkeit1){
+            gegnerleben=gegnerleben-f1schaden;
+            mana=mana-f1mana;
+           aktualiesierung();
+
+        }
+
+
+
+   }
+
+
+
+
+
 
 
 
         public static void main (String[]args)
         {
-            new Kampf(70, 200, 200, 3, 20, 100, 50, 20, 20);
+            new Kampf(70, 30, 200, 2, 20, 100, 50, 20, 20);
 
 
         }
 
-    }
+
+}
 

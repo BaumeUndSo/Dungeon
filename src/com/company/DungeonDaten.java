@@ -9,16 +9,16 @@ public class DungeonDaten
     public DungeonDaten()
     {
         //Hoehe * 4, Breite * 4, Raume,
-       int manual=0,gesetzt=0;
+       int manual=0,gesetzt=0,tmp_breite,tmp_hoehe;
 
        if(manual==0) {
-           String mapcode="4-6-3";
+           String mapcode="6-6-4";
            String[] split = mapcode.split("-");
            hoehe=Integer.parseInt(split[0]);
            if(hoehe>6){
                hoehe=6;
            }
-           breite=Integer.parseInt(split[1])*4;
+           breite=Integer.parseInt(split[1]);
            if(breite>6){
                breite=6;
            }
@@ -31,6 +31,8 @@ public class DungeonDaten
            hoehe=hoehe*4;
            breite=breite*4;
            daten = new String[hoehe];
+
+           //Außen-Wände abziehen da nicht eingerechnet
            for(int h=0; h<hoehe;h++) {
                daten[h]="";
                for (int b = 0; b < breite; b++) {
@@ -56,9 +58,15 @@ public class DungeonDaten
                        }else if((h==(hoehe-2) && b==2)||(h==(hoehe-3) && b==2)){
                            daten[h]+="W";
                            gesetzt=1;
+                       }else if((h==(hoehe-4) && b==1)){
+                           daten[h]+="E";
+                           gesetzt=1;
                        }else {
+
                            //raumgenerierung
-                           if(raume>=2){
+                           if((raume>=2) && (gesetzt==0)){
+
+                               //Tür Rechts
                                if(h==((hoehe/2))){
                                    if(b==(breite-(breite/4))) {
                                        daten[h] += "V";
@@ -68,6 +76,15 @@ public class DungeonDaten
                                        gesetzt = 1;
                                    }
                                }
+
+                               //Türwächter
+                               if((h==((hoehe/2)-1)) && (gesetzt==0)){
+                                   if(b==(breite-(breite/4))) {
+                                       daten[h] += "E";
+                                       gesetzt = 1;
+                                   }
+                               }
+
                                //Schlüssel oben links
                                if(b==(breite/5) && h==(hoehe/3)) {
                                    daten[h] += "I";
@@ -78,7 +95,8 @@ public class DungeonDaten
                                    daten[h] += "I";
                                    gesetzt = 1;
                                }
-                               if(raume>=3) {
+                               if(raume>=3 && (gesetzt==0)) {
+                                   //Tür Oben
                                    if (h <= ((hoehe / 2)) && b==(breite/2)) {
                                        if(h==(hoehe/4)) {
                                            daten[h] += "V";
@@ -88,12 +106,21 @@ public class DungeonDaten
                                            gesetzt = 1;
                                        }
                                    }
+                                    //Türwächter
+                                   if (h <= ((hoehe / 2)) && b==((breite/2)-1)) {
+                                       if(h==(hoehe/4)) {
+                                           daten[h] += "E";
+                                           gesetzt = 1;
+                                       }
+                                   }
+
                                    //Schlüssel oben rechts
                                    if(b==(breite-(breite/5)) && h==(hoehe/6)) {
                                        daten[h] += "I";
                                        gesetzt = 1;
                                    }
-                                   if(raume>=4) {
+                                   if(raume>=4 && (gesetzt==0)) {
+                                       //Tür Unten
                                        if (h >= ((hoehe / 2)) && b==((breite/2)-1)) {
                                            if(h==(hoehe-(hoehe/4))) {
                                                daten[h] += "V";
@@ -103,6 +130,14 @@ public class DungeonDaten
                                                gesetzt = 1;
                                            }
                                        }
+                                       //Türwächter
+                                       if (h >= ((hoehe / 2)) && b==((breite/2))) {
+                                           if(h==(hoehe-(hoehe/4))) {
+                                               daten[h] += "E";
+                                               gesetzt = 1;
+                                           }
+                                       }
+
                                        //Schlüssel unten rechts
                                        if(b==(breite-(breite/6)) && h==(hoehe-(hoehe/6))) {
                                            daten[h] += "I";
@@ -125,13 +160,16 @@ public class DungeonDaten
 
                        randZahl = 1 + rand.nextInt(100);
                        //Fähigkeitenpunkt
-                       if(randZahl>=95){
+                       if(randZahl>=98){
                            daten[h] += "H";
                            //starker Gegner
-                       }else if(randZahl>=85){
-                           daten[h] += "E";
+                       }else if(randZahl>=96){
+                           daten[h] += "M";
                            //schwacher Gegner
-                       }else if(randZahl>=65){
+                       }else if(randZahl>=95){
+                           daten[h] += "X";
+                           //schwacher Gegner
+                       }else if(randZahl>=86){
                            daten[h] += "G";
                            //Leerfeld
                        }else{
