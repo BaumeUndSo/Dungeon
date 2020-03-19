@@ -104,7 +104,7 @@ public class Held
     //Mana
     public void addmana(int addmana)
     {
-        if((mana+addmana)>max_HP){
+        if((mana+addmana)>max_mana){
             mana=max_mana;
         }else{
             mana=mana+addmana;

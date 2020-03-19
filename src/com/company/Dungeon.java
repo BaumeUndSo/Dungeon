@@ -134,11 +134,29 @@ public class Dungeon
             new_kampf = new new_kampf(kurt.getHP(), kurt.getmaxHP(), kurt.getmana(), kurt.getmaxmana(), kurt.getXP(), kurt.getNextLVL(), kurt.getLVL(), gegnertyp);
             new_kampf.paint(g);
             //Kampf ausführen start
-            int k = 1, gegnerHP, gegnerAngriff, angriff = 10;
-            if (gegnertyp == 1) {
+            int k = 1, gegnerHP, gegnerAngriff;
+            if (gegnertyp == 0) {
                 gegnerHP = 50;
                 gegnerAngriff = 5;
-            } else {
+            }else if(gegnertyp==1){
+                if( kurt.LVL==1){
+                    gegnerHP=50;
+                    gegnerAngriff=10;
+                }else if(kurt.LVL==2 || kurt.LVL==3){
+                    gegnerHP=75;
+                    gegnerAngriff=15;
+                }else if(kurt.LVL==4){
+                    gegnerHP=100;
+                    gegnerAngriff=20;
+                }else if(kurt.LVL>=5){
+                    gegnerHP=150;
+                    gegnerAngriff=30;
+                }else{
+                    gegnerHP=50;
+                    gegnerAngriff=5;
+                }
+
+            }else {
                 gegnerHP = 0;
                 gegnerAngriff = 5;
             }

@@ -14,10 +14,28 @@ public class new_kampf {
         LVL=pLVL;
         gegnertyp=pgegnertyp;
         angriff=10;
-        if(gegnertyp==1){
+        if(gegnertyp==0){
             gegnermaxHP=50;
             gegnerHP=50;
             gegnerAngriff=5;
+        }else if(gegnertyp==1){
+            if( LVL==2 || LVL==3){
+                gegnermaxHP=75;
+                gegnerHP=75;
+                gegnerAngriff=15;
+            }else if(LVL==4 ){
+                gegnermaxHP=100;
+                gegnerHP=100;
+                gegnerAngriff=20;
+            }else if(LVL>=5){
+                gegnermaxHP=100;
+                gegnerHP=100;
+                gegnerAngriff=20;
+            }else{
+                gegnermaxHP=50;
+                gegnerHP=50;
+                gegnerAngriff=10;
+            }
         }
     }
     public void paint(Graphics g) {
