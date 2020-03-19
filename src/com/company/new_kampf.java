@@ -55,7 +55,7 @@ public class new_kampf {
                 posx = 200;
                 for (int i = 0; i <= 30; i++) {
                     posx = posx + 3;
-                    sleep(20);
+                    sleep(10);
                     if (i == 30) {
                         g.drawString(">", posx, posy);
                     } else {
@@ -70,7 +70,7 @@ public class new_kampf {
                 posx=300;
                 for (int i = 0; i <= 30; i++) {
                     posx = posx - 3;
-                    sleep(20);
+                    sleep(10);
                     if (i == 30) {
                         g.drawString("<", posx, posy);
                     } else {
