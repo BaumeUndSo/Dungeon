@@ -10,7 +10,8 @@ public class Dungeon
     private int aktX, aktY,itemtyp,anzahl,schlüssel;
     private String test;
     private Inventar inv;
-    boolean inventar;
+    private new_kampf new_kampf;
+    boolean inventar,openkampf;
     public Gegner Schwach,Stark;
     public boolean Kampf1;
     private  Kampf kampf;
@@ -45,7 +46,7 @@ public class Dungeon
             }
 
     }
-    public void move(String richtung)
+    public int move(String richtung)
     {
         if(kurt.getHP()>0) {
             int neuY = aktY;
@@ -66,19 +67,25 @@ public class Dungeon
                     item.items[1] = item.items[1] + 1;
                 }
                 if (feld[neuX][neuY].getTyp() == 5) {
-                    // neuer kampf wir gestartet /*
+                    /*
+                    // neuer kampf wir gestartet
                     kampf = new Kampf(kurt.leben, kurt.angriff, kurt.mana, kurt.fähigkeiten, 20, 100, 50, 20, 20);
                     Kampf1 = true;
+                    */
+                    openkampf=true;
                 }
                 if (feld[neuX][neuY].getTyp() == 6) {
+                    /*
                     kampf = new Kampf(kurt.leben, kurt.angriff, kurt.mana, kurt.fähigkeiten, 20, 100, 50, 20, 20);
                     Kampf1 = true;
+                     */
+                    openkampf=true;
                 }
                 if (feld[neuX][neuY].getTyp() == 2) {
                     if (item.items[1] > 0) {
                         item.items[1] = item.items[1] - 1;
                     } else {
-                        return;
+                        return 0;
                     }
                 }
                 if (feld[neuX][neuY].getTyp() == 7) {
@@ -92,32 +99,47 @@ public class Dungeon
                 }
                 //wand kein movement
                 if (feld[neuX][neuY].getTyp() == 0) {
-                    return;
+                    return 0;
                 }
 
             }
+
             kurt.geheZu(neuX, neuY);
             aktY = neuY;
             aktX = neuX;
             feld[aktX][aktY].typ = 1;
+
+            if(openkampf==true){
+                return 1;
+            }
         }
+
+        return 0;
     }
 
 
     public void paint(Graphics g)
     {
         if(inventar==true ){
-        schlüssel=item.items[1];
-        inv= new Inventar(schlüssel,kurt.getHP(),kurt.getmaxHP(),kurt.getmana(),kurt.getmaxmana(),kurt.getXP(),kurt.getNextLVL(),kurt.getLVL());
-        inv.paint(g);
-        inventar= false ;
-    }
-    else
-        for (int y=0; y<daten.hoehe; y++)
-            for (int x=0; x<daten.breite; x++)
-                feld[x][y].paint(g);
-        kurt.paint(g);
+            schlüssel=item.items[1];
+            inv= new Inventar(schlüssel,kurt.getHP(),kurt.getmaxHP(),kurt.getmana(),kurt.getmaxmana(),kurt.getXP(),kurt.getNextLVL(),kurt.getLVL());
+            inv.paint(g);
+            inventar= false ;
+        }else if(openkampf==true) {
+            for (int y = 0; y < daten.hoehe; y++)
+                for (int x = 0; x < daten.breite; x++)
+                    feld[x][y].paint(g);
+            kurt.paint(g);
 
+            new_kampf=new new_kampf(kurt.getHP(),kurt.getmaxHP(),kurt.getmana(),kurt.getmaxmana(),kurt.getXP(),kurt.getNextLVL(),kurt.getLVL());
+            new_kampf.paint(g);
+            openkampf=false;
+        }else{
+            for (int y = 0; y < daten.hoehe; y++)
+                for (int x = 0; x < daten.breite; x++)
+                    feld[x][y].paint(g);
+            kurt.paint(g);
+        }
 
 
     }
